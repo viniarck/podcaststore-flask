@@ -16,7 +16,6 @@ setup(
         "psycopg2-binary==2.8.1",
         "gunicorn==19.9.0",
         "python-rapidjson==0.7.1",
-        "django-extensions==2.1.7",
         "ipython==7.5.0",
         "packaging==19.0",
         "flask-shell-ipython==0.4.1",
@@ -24,7 +23,6 @@ setup(
     extras_require={
         "dev": [
             "pytest==4.5.0",
-            "pytest-django==3.4.8",
             "pytest-cov==2.7.1",
             "flake8==3.7.7",
             "mypy==0.701",
