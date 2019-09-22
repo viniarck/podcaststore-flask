@@ -30,4 +30,7 @@ python36-lint:
 python36:
   image: python:3.6
   stage: test
-  script: pytest -vv -s
+  script:
+    - export FLASK_ENV=development FLASK_APP=podcaststore/app.py; flask run
+    - sleep 5
+    - pytest -vv -s
