@@ -1,0 +1,33 @@
+image: python
+
+services:
+  - redis:5.0.4
+  - postgres:9.6.8
+
+variables:
+  POSTGRES_DB: podcast_api
+  POSTGRES_USER: db_user
+  POSTGRES_PASSWORD: db_pass
+  DB_HOST: postgres
+  CACHE_HOST: redis
+  DB_NAME: podcast_api
+  DB_USER: db_user
+  DB_PW: db_pass
+
+stages:
+- build
+- test
+
+before_script:
+- pip install -e .[dev]
+
+python36-lint:
+  image: python:3.6
+  stage: build
+  script:
+    - flake8 podcaststore --ignore=E501,F401,E402
+
+python36:
+  image: python:3.6
+  stage: test
+  script: pytest -vv -s
